@@ -1,0 +1,7 @@
+/client/node_modules/*
+/server/node_modules/*
+
+/.pnp
+.pnp.js
+package-lock.json
+npm-debug.log*
