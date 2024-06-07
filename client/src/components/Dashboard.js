@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TimezoneSelect from "react-timezone-select";
 import { useNavigate } from "react-router-dom";
-import { time } from "../utils/resource";
+import { time } from "../utils/resource/resource";
 import { toast } from "react-toastify";
 
 const Dashboard = () => {
@@ -73,6 +73,20 @@ const Dashboard = () => {
                                             </option>
                                         ))}
                                     </select>
+                                </div>
+                            <div className='select__wrapper'>
+                                <label htmlFor='endTime'>End Time</label>
+                                <select
+                                    name='endTime'
+                                    id='endTime'
+                                    onChange={(e) => handleTimeChange(e, id)}
+                                >
+                                    {time.map((t) => (
+                                        <option key={t.id} value={t.t} id={t.id}>
+                                            {t.t}
+                                        </option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                     ))}
