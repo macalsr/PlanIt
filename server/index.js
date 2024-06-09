@@ -15,3 +15,27 @@ app.listen(PORT, () => {
     console.log('Server listening on ${PORT}');
 });
 
+const database = [];
+const generateID = () => Math.random().toString(36).substring(2, 10);
+
+app.post("/register", (req, res) => {
+    const { username, email, password } = req.body;
+
+    let result = database.filter(
+        (user) => user.email === email || user.username === username
+    );
+
+    if (result.length === 0) {
+        database.push({
+            id: generateID(),
+            username,
+            password,
+            email,
+            timezone: {},
+            schedule: [],
+        });
+        return res.json({ message: "Account created succesfully!" });
+    }
+    re
+    
+});
